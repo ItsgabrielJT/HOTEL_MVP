@@ -116,3 +116,9 @@ No se incluye autenticación ni administración avanzada; los datos iniciales (h
 - Reintento de pago por timeout de red: se debe aplicar idempotencia.
 - Pago fallido: el hold se libera inmediatamente.
 - Worker cae temporalmente: los holds expirados deben liberarse al reanudarse el worker (eventual consistency acotada).
+
+### 5.4 UI/UX highlights
+
+- “Transparencia de disponibilidad”: el listado refleja inventario real.
+- Timer visible con tiempo restante del hold.
+- Mensajes claros en “No disponible”, “Hold expirado” y “Pago fallido”.
