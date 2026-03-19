@@ -37,11 +37,18 @@
       Then el sistema no debe mostrar la habitación "101" en los resultados
     ```
 
-
 ### HU3: Bloqueo Atómico de Checkout (Hold)
 
 **Como** viajero, **quiero** que la habitación se aparte exclusivamente para mí por 10 minutos al seleccionarla, **para** completar mis datos de pago sin riesgo de que alguien más la reserve.
 
+* **Criterios de Aceptación (Gherkin):**
+    ```gherkin
+    Scenario: Prevención de colisión de reserva (Race Condition)
+      Given que la habitación "202" está disponible
+      When dos usuarios intentan bloquear la habitación "202" simultáneamente
+      Then el sistema confirma el bloqueo al primer usuario
+      And rechaza la solicitud del segundo usuario con un mensaje de "Habitación no disponible"
+    ```
    
 ### HU4: Persistencia del Timer de Reserva
 
