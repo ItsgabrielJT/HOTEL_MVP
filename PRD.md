@@ -1,4 +1,4 @@
-# PRD: 🏨 Travel: Motor de Reservas de Hotel (MVP NestJS + React)
+# PRD: 🏨 Travel: Motor de Reservas de Hotel
 
 ## 1. Visión
 
@@ -11,43 +11,43 @@ No se incluye autenticación ni administración avanzada; los datos iniciales (h
 
 ## 2. Alcance (IN/OUT)
 
-### 2.1 Business goals
+### 2.1 Objetivos de negocio
 
 - Reducir el riesgo de sobreventa (double booking) a ~0 en el flujo MVP.
 - Incrementar conversión al proteger inventario durante el pago (hold de 10 minutos).
 - Liberar automáticamente inventario bloqueado para evitar pérdida de ventas.
 
-### 2.2 User goals
+### 2.2 Objetivos de usuario
 
 - Permitir al viajero seleccionar una habitación y completar el pago con la tranquilidad de que la habitación permanecerá bloqueada durante 10 minutos.
 - Dar visibilidad clara del tiempo restante de bloqueo en el check-out.
 - Permitir al administrador del hotel recuperar inventario automáticamente cuando el pago no se completa.
 
-### 2.3 Non-goals
+### 2.3 Fuera de alcance
 
 - Cancelaciones, cambios de fecha, reembolsos o políticas de penalidad.
 - Registro/login, perfiles, programas de lealtad.
 - Multidivisa o integración con pasarelas reales.
 - Panel de administración, reportes históricos avanzados.
 
-## 3. User personas
+## 3. Usuarios y roles
 
-### 3.1 Key user types
+### 3.1 Tipos de usuarios
 
 - Viajero (huésped)
 - Administrador del hotel
 
-### 3.2 Basic persona details
+### 3.2 Necesidades
 
 - **Viajero (huésped)**: busca una habitación disponible, la bloquea durante el check-out y completa el pago dentro de un límite de tiempo, con confirmación inmediata.
 - **Administrador del hotel**: necesita que el inventario no quede “secuestrado” por bloqueos abandonados; requiere liberación automática y consistencia del estado.
 
-### 3.3 Role-based access
+### 3.3 Roles & permissions
 
 - **Viajero (sin login)**: acceso público a búsqueda, selección, check-out, pago simulado y confirmación.
 - **Administrador del hotel (sin login en MVP)**: necesidades cubiertas indirectamente por la lógica automática de expiración; no hay UI ni endpoints protegidos de administración.
 
-## 4. Functional requirements
+## 4. Requerimientos funcionales
 
 - **Buscador de disponibilidad atómico** (Priority: P0)
   - Consultar disponibilidad por rango de fechas para habitaciones específicas.
@@ -87,15 +87,15 @@ No se incluye autenticación ni administración avanzada; los datos iniciales (h
   - Carga inicial de hotel(es), habitaciones (por ID único) y tarifas básicas para permitir pruebas end-to-end.
   - La creación de datos de prueba no requiere UI.
 
-## 5. User experience
+## 5. Experiencia de usuario
 
-### 5.1 Entry points & first-time user flow
+### 5.1 Flujo principal
 
 - Landing simple con buscador (fechas + ciudad/hotel opcional) y listado de habitaciones disponibles.
 - Selección de una habitación específica inicia el hold y redirige a check-out.
 - Check-out muestra datos mínimos, contador y botón “Pagar (simulado)”.
 
-### 5.2 Core experience
+### 5.2 Nucleo de la experiencia
 
 - **Buscar habitaciones**: el usuario ingresa fecha de entrada/salida y ve habitaciones disponibles.
   - Asegura transparencia al mostrar solo inventario realmente disponible (descuenta holds activos).
@@ -108,7 +108,7 @@ No se incluye autenticación ni administración avanzada; los datos iniciales (h
 - **Confirmación**: se muestra el estado final (confirmado) con código de reserva.
   - Asegura cierre de transacción de negocio.
 
-  ### 5.3 Advanced features & edge cases
+### 5.3 Funcionalidades críticas
 
 - Dos usuarios intentan bloquear la misma habitación/rango casi al mismo tiempo.
 - Usuario refresca la página durante el hold: la UI debe recuperar el estado del hold.
@@ -117,7 +117,7 @@ No se incluye autenticación ni administración avanzada; los datos iniciales (h
 - Pago fallido: el hold se libera inmediatamente.
 - Worker cae temporalmente: los holds expirados deben liberarse al reanudarse el worker (eventual consistency acotada).
 
-### 5.4 UI/UX highlights
+### 5.4 UI/UX 
 
 - “Transparencia de disponibilidad”: el listado refleja inventario real.
 - Timer visible con tiempo restante del hold.
@@ -157,7 +157,7 @@ flowchart TD
     Q --> R[Fin]
 ```
 
-## 6. Narrative
+## 6. Narrativa
 
 El viajero busca fechas y elige una habitación específica. Al seleccionarla, el sistema la bloquea durante 10 minutos para que el viajero pueda completar el check-out con seguridad. Si el pago simulado se confirma dentro del tiempo, la reserva queda confirmada; si no, el sistema libera la habitación automáticamente para que otros usuarios puedan reservarla, manteniendo el inventario siempre vendible.
 
@@ -171,37 +171,37 @@ El viajero busca fechas y elige una habitación específica. Al seleccionarla, e
 
 ---
 
-## 8. Success metrics
+## 8. Metricas de éxito
 
-### 8.1 User-centric metrics
+### 8.1 Metricas de usuario
 
 - Tasa de éxito de creación de hold (selección) sin errores.
 - Tiempo medio desde selección hasta confirmación.
 - Porcentaje de holds que expiran (indicador de fricción del check-out).
 
-### 8.2 Business metrics
+### 8.2 Metricas de negocio
 
 - Overbooking: 0 reservas confirmadas duplicadas por habitación/rango.
 - Conversión: confirmaciones / holds creados.
 - Recuperación de inventario: holds expirados liberados / total holds expirados.
 
-### 8.3 Technical metrics
+### 8.3 Metricas técnicas
 
 - p95 de `GET /availability` (objetivo inicial: < 300 ms con dataset pequeño de MVP).
 - p95 de `POST /holds` y `POST /payments` (objetivo inicial: < 500 ms).
 - Tasa de conflictos de concurrencia (intentos de hold fallidos por colisión).
 - Drift de expiración: tiempo máximo entre `expires_at` y liberación efectiva (objetivo inicial: < 60 s).
 
-## 9. Technical considerations
+## 9. Arquitectura de datos
 
-### 9.1 Integration points
+### 9.1 Ecosistema de datos
 
 - React (frontend) consume Nest JS (backend) vía JSON/HTTP.
 - Backend persiste estado en base de datos relacional (recomendado: PostgreSQL por soporte robusto de locks).
 - Worker de expiración ejecuta tareas periódicas contra la misma base de datos.
 
 
-### 9.2 Data storage & privacy
+### 9.2 Modelo de datos
 
 - Entidades mínimas sugeridas:
   - `Hotel`
