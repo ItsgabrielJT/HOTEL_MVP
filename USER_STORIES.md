@@ -12,3 +12,8 @@
 ### HU2: Consulta de Disponibilidad Consistente
 
 **Como** viajero, **quiero** ver solo las habitaciones que no tienen reservas ni bloqueos activos, **para** tomar una decisión basada en la disponibilidad real del hotel.
+
+
+### HU3: Bloqueo Atómico de Checkout (Hold)
+
+**Como** viajero, **quiero** que la habitación se aparte exclusivamente para mí por 10 minutos al seleccionarla, **para** completar mis datos de pago sin riesgo de que alguien más la reserve.
