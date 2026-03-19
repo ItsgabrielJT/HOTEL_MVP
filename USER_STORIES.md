@@ -4,6 +4,14 @@
 
 **Como** equipo de ingeniería, **quiero** configurar un entorno de persistencia con transacciones ACID y CI/CD, **para** garantizar que el motor de reservas opere con consistencia y seguridad.
 
+* **Criterios de Aceptación (Gherkin):**
+    ```gherkin
+    Scenario: Soporte de transacciones y bloqueos
+      Given una base de datos PostgreSQL inicializada
+      When el sistema ejecuta una consulta con bloqueo de fila (SELECT FOR UPDATE)
+      Then la base de datos debe impedir que otra transacción modifique la misma fila hasta que la primera finalice
+    ```
+
 
 ### HU1: Seeder de Inventario Inicial
 
