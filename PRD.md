@@ -61,3 +61,14 @@ No se incluye autenticación ni administración avanzada; los datos iniciales (h
   - El hold debe crear un “bloqueo temporal” con `expires_at = now() + 10 minutos`.
   - El proceso de creación del hold debe ser atómico y seguro ante concurrencia.
   - En la capa de persistencia, se debe usar transacción y `SELECT ... FOR UPDATE` (o equivalente) para evitar que dos holds/reservas se creen simultáneamente para la misma habitación/rango.
+
+- **Expiración automática de bloqueos** (Priority: P0)
+  - Un worker/proceso programado debe liberar holds expirados sin pago.
+  - Un hold expirado debe transicionar a un estado final (por ejemplo `EXPIRED`) y dejar la habitación disponible.
+  - La expiración debe ser idempotente (ejecutar dos veces no debe romper estados).
+
+- **Pago simulado e idempotente** (Priority: P0)
+  - La “pasarela” debe ser mock/simulador con resultado configurable (éxito/fallo).
+  - Se deben soportar claves de idempotencia por intento de pago para evitar cobros duplicados (p. ej. reintentos del cliente).
+  - Un pago solo puede confirmar una reserva si existe un hold activo y no expirado.
+  - Pago fallido debe liberar el hold (o marcarlo como `CANCELLED/RELEASED`) inmediatamente.
