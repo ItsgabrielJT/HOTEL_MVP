@@ -91,6 +91,15 @@
 
 **Como** sistema, **quiero** liberar la habitación de inmediato si el pago es rechazado, **para** que el hotel no pierda oportunidades de venta con otros clientes.
 
+* **Criterios de Aceptación (Gherkin):**
+    ```gherkin
+    Scenario: Pago declinado por el banco
+      Given un bloqueo activo para la habitación "305"
+      When el usuario intenta pagar y la pasarela retorna "DECLINED"
+      Then el sistema debe marcar el bloqueo como "RELEASED" inmediatamente
+      And la habitación "305" debe volver a estar disponible en el buscador
+    ```
+
 ### HU8: Expiración Automática de Bloqueos (Worker)
 
 **Como** administrador, **quiero** que el sistema libere automáticamente los bloqueos que superen los 10 minutos, **para** evitar que el inventario quede retenido por carritos abandonados.
