@@ -22,3 +22,7 @@
 ### HU4: Persistencia del Timer de Reserva
 
 **Como** viajero, **quiero** que el tiempo restante de mi bloqueo se mantenga si refresco la página, **para** no perder mi turno por un error del navegador.
+
+### HU5: Procesamiento de Pago Idempotente
+
+**Como** viajero, **quiero** que mi pago se procese una sola vez ante reintentos de red, **para** evitar cargos duplicados en mi cuenta.
