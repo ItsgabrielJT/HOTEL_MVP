@@ -35,3 +35,7 @@
 ### HU7: Liberación Proactiva por Fallo de Pago
 
 **Como** sistema, **quiero** liberar la habitación de inmediato si el pago es rechazado, **para** que el hotel no pierda oportunidades de venta con otros clientes.
+
+### HU8: Expiración Automática de Bloqueos (Worker)
+
+**Como** administrador, **quiero** que el sistema libere automáticamente los bloqueos que superen los 10 minutos, **para** evitar que el inventario quede retenido por carritos abandonados.
