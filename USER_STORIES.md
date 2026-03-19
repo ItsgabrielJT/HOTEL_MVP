@@ -1,6 +1,7 @@
 # 🏨 Backlog Final Consolidado: Travel Hotel
 
 ### HU0: Configuración del Ecosistema de Datos
+**Story Point**: 5 
 
 **Como** equipo de ingeniería, **quiero** configurar un entorno de persistencia con transacciones ACID y CI/CD, **para** garantizar que el motor de reservas opere con consistencia y seguridad.
 
@@ -12,8 +13,8 @@
       Then la base de datos debe impedir que otra transacción modifique la misma fila hasta que la primera finalice
     ```
 
-
 ### HU1: Seeder de Inventario Inicial
+**Story Point**: 2
 
 **Como** equipo de desarrollo, **quiero** contar con una carga automática de hoteles y habitaciones, **para** realizar pruebas funcionales sin depender de ingresos manuales.
 
@@ -25,7 +26,10 @@
       Then las tablas de Hoteles y Habitaciones deben contener registros válidos para pruebas
     ```
 
+---
+
 ### HU2: Consulta de Disponibilidad Consistente
+**Story Point**: 3
 
 **Como** viajero, **quiero** ver solo las habitaciones que no tienen reservas ni bloqueos activos, **para** tomar una decisión basada en la disponibilidad real del hotel.
 
@@ -37,7 +41,10 @@
       Then el sistema no debe mostrar la habitación "101" en los resultados
     ```
 
+---
+
 ### HU3: Bloqueo Atómico de Checkout (Hold)
+**Story Point**: 8
 
 **Como** viajero, **quiero** que la habitación se aparte exclusivamente para mí por 10 minutos al seleccionarla, **para** completar mis datos de pago sin riesgo de que alguien más la reserve.
 
@@ -49,8 +56,9 @@
       Then el sistema confirma el bloqueo al primer usuario
       And rechaza la solicitud del segundo usuario con un mensaje de "Habitación no disponible"
     ```
-   
+
 ### HU4: Persistencia del Timer de Reserva
+**Story Point**: 3
 
 **Como** viajero, **quiero** que el tiempo restante de mi bloqueo se mantenga si refresco la página, **para** no perder mi turno por un error del navegador.
 
@@ -62,7 +70,10 @@
       Then el contador visual debe reanudarse mostrando los 5 minutos restantes del servidor
     ```
 
+---
+
 ### HU5: Procesamiento de Pago Idempotente
+**Story Point**: 5
 
 **Como** viajero, **quiero** que mi pago se procese una sola vez ante reintentos de red, **para** evitar cargos duplicados en mi cuenta.
 
@@ -75,6 +86,7 @@
     ```
 
 ### HU6: Confirmación Definitiva de Reserva
+**Story Point**: 3
 
 **Como** viajero, **quiero** que mi reserva pase de "Bloqueada" a "Confirmada" tras el pago, **para** recibir mi garantía de estancia.
 
@@ -87,7 +99,10 @@
       And el inventario debe quedar descontado permanentemente
     ```
 
+---
+
 ### HU7: Liberación Proactiva por Fallo de Pago
+**Story Point**: 2
 
 **Como** sistema, **quiero** liberar la habitación de inmediato si el pago es rechazado, **para** que el hotel no pierda oportunidades de venta con otros clientes.
 
@@ -101,6 +116,7 @@
     ```
 
 ### HU8: Expiración Automática de Bloqueos (Worker)
+**Story Point**: 3
 
 **Como** administrador, **quiero** que el sistema libere automáticamente los bloqueos que superen los 10 minutos, **para** evitar que el inventario quede retenido por carritos abandonados.
 
@@ -114,6 +130,7 @@
     ```
 
 ### HU9: Resolución de Carrera Pago-Expiración
+**Story Point**: 5 
 
 **Como** sistema, **quiero** priorizar un pago exitoso que llega en el último segundo frente a la limpieza del worker, **para** no cancelar una venta legítima por milisegundos de desfase.
 
@@ -126,7 +143,10 @@
       Then el sistema debe permitir la confirmación de la reserva y anular la expiración
     ```
 
+---
+
 ### HU10: Protección contra Bloqueos Masivos (Rate Limiting)
+**Story Point**: 5 
 
 **Como** sistema, **quiero** limitar el número de bloqueos por dirección IP, **para** prevenir ataques de bots que intenten dejar al hotel sin disponibilidad.
 
@@ -139,6 +159,7 @@
     ```
 
 ### HU11: Validación de Integridad de Fechas
+**Story Point**: 3
 
 **Como** sistema, **quiero** validar que las fechas de reserva sean coherentes, **para** evitar errores lógicos en el inventario.
 
@@ -148,3 +169,5 @@
       When el usuario intenta reservar con Check-in "2026-10-20" y Check-out "2026-10-18"
       Then el sistema debe rechazar la operación con un error de "Fechas inválidas"
     ```
+
+---
