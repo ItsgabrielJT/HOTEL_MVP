@@ -122,3 +122,37 @@ No se incluye autenticación ni administración avanzada; los datos iniciales (h
 - “Transparencia de disponibilidad”: el listado refleja inventario real.
 - Timer visible con tiempo restante del hold.
 - Mensajes claros en “No disponible”, “Hold expirado” y “Pago fallido”.
+
+### 5.5 Flujo de Reserva de Hotel (Usuario Viajero)
+
+```mermaid
+flowchart TD
+    A[Inicio: Usuario ingresa al sistema] --> B[Buscar destino y fechas]
+    B --> C[Consultar disponibilidad de habitaciones]
+
+    C --> D{¿Hay disponibilidad?}
+    D -- No --> E[Mostrar mensaje: Sin disponibilidad]
+    E --> B
+
+    D -- Sí --> F[Mostrar opciones de habitaciones]
+    F --> G[Seleccionar habitación]
+
+    G --> H[Intentar bloqueo de habitación]
+    H --> I{¿Bloqueo exitoso?}
+
+    I -- No --> J[Mostrar error: habitación ya reservada]
+    J --> F
+
+    I -- Sí --> K[Ingresar datos del usuario]
+    K --> L[Procesar pago]
+
+    L --> M{¿Pago exitoso?}
+    M -- No --> N[Liberar habitación bloqueada]
+    N --> O[Mostrar error de pago]
+    O --> L
+
+    M -- Sí --> P[Confirmar reserva]
+    P --> Q[Enviar confirmación al usuario]
+
+    Q --> R[Fin]
+```
