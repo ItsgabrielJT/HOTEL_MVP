@@ -86,3 +86,11 @@ No se incluye autenticación ni administración avanzada; los datos iniciales (h
 - **Seeder de datos** (Priority: P1)
   - Carga inicial de hotel(es), habitaciones (por ID único) y tarifas básicas para permitir pruebas end-to-end.
   - La creación de datos de prueba no requiere UI.
+
+## 5. User experience
+
+### 5.1 Entry points & first-time user flow
+
+- Landing simple con buscador (fechas + ciudad/hotel opcional) y listado de habitaciones disponibles.
+- Selección de una habitación específica inicia el hold y redirige a check-out.
+- Check-out muestra datos mínimos, contador y botón “Pagar (simulado)”.
