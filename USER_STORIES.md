@@ -17,6 +17,14 @@
 
 **Como** equipo de desarrollo, **quiero** contar con una carga automática de hoteles y habitaciones, **para** realizar pruebas funcionales sin depender de ingresos manuales.
 
+* **Criterios de Aceptación (Gherkin):**
+    ```gherkin
+    Scenario: Carga exitosa de datos maestros
+      Given el entorno de base de datos está vacío
+      When se ejecuta el script de seeder
+      Then las tablas de Hoteles y Habitaciones deben contener registros válidos para pruebas
+    ```
+
 ### HU2: Consulta de Disponibilidad Consistente
 
 **Como** viajero, **quiero** ver solo las habitaciones que no tienen reservas ni bloqueos activos, **para** tomar una decisión basada en la disponibilidad real del hotel.
