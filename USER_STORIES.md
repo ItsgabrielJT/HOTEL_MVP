@@ -141,3 +141,10 @@
 ### HU11: Validación de Integridad de Fechas
 
 **Como** sistema, **quiero** validar que las fechas de reserva sean coherentes, **para** evitar errores lógicos en el inventario.
+
+* **Criterios de Aceptación (Gherkin):**
+    ```gherkin
+    Scenario: Reserva con fecha de salida anterior a la entrada
+      When el usuario intenta reservar con Check-in "2026-10-20" y Check-out "2026-10-18"
+      Then el sistema debe rechazar la operación con un error de "Fechas inválidas"
+    ```
