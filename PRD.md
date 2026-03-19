@@ -160,3 +160,13 @@ flowchart TD
 ## 6. Narrative
 
 El viajero busca fechas y elige una habitación específica. Al seleccionarla, el sistema la bloquea durante 10 minutos para que el viajero pueda completar el check-out con seguridad. Si el pago simulado se confirma dentro del tiempo, la reserva queda confirmada; si no, el sistema libera la habitación automáticamente para que otros usuarios puedan reservarla, manteniendo el inventario siempre vendible.
+
+---
+
+## 7. Suposiciones, Riesgos y Preguntas Abiertas
+* **Suposiciones:** Se asume que 10 minutos es el tiempo suficiente para el 95% de los usuarios para completar el pago.
+* **Riesgos Técnicos:** Saturación de la tabla de disponibilidad bajo alto volumen de bloqueos simultáneos.
+* **Riesgos de Negocio:** Usuarios malintencionados bloqueando inventario sin intención de compra (DoS de inventario).
+* **Preguntas Abiertas:** ¿Se debe permitir extender el timer si el usuario está interactuando activamente con el formulario?
+
+---
