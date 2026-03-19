@@ -43,3 +43,7 @@
 ### HU9: Resolución de Carrera Pago-Expiración
 
 **Como** sistema, **quiero** priorizar un pago exitoso que llega en el último segundo frente a la limpieza del worker, **para** no cancelar una venta legítima por milisegundos de desfase.
+
+### HU10: Protección contra Bloqueos Masivos (Rate Limiting)
+
+**Como** sistema, **quiero** limitar el número de bloqueos por dirección IP, **para** prevenir ataques de bots que intenten dejar al hotel sin disponibilidad.
