@@ -178,3 +178,9 @@ El viajero busca fechas y elige una habitación específica. Al seleccionarla, e
 - Tasa de éxito de creación de hold (selección) sin errores.
 - Tiempo medio desde selección hasta confirmación.
 - Porcentaje de holds que expiran (indicador de fricción del check-out).
+
+### 8.2 Business metrics
+
+- Overbooking: 0 reservas confirmadas duplicadas por habitación/rango.
+- Conversión: confirmaciones / holds creados.
+- Recuperación de inventario: holds expirados liberados / total holds expirados.
