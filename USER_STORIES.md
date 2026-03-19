@@ -1,7 +1,7 @@
 # 🏨 Backlog Final Consolidado: Travel Hotel
 
 ### HU0: Configuración del Ecosistema de Datos
-**Story Point**: 5 
+**Story Point**: 3
 
 **Como** equipo de ingeniería, **quiero** configurar un entorno de persistencia con transacciones ACID y CI/CD, **para** garantizar que el motor de reservas opere con consistencia y seguridad.
 
@@ -29,7 +29,7 @@
 ---
 
 ### HU2: Consulta de Disponibilidad Consistente
-**Story Point**: 3
+**Story Point**: 2
 
 **Como** viajero, **quiero** ver solo las habitaciones que no tienen reservas ni bloqueos activos, **para** tomar una decisión basada en la disponibilidad real del hotel.
 
@@ -44,7 +44,7 @@
 ---
 
 ### HU3: Bloqueo Atómico de Checkout (Hold)
-**Story Point**: 8
+**Story Point**: 13
 
 **Como** viajero, **quiero** que la habitación se aparte exclusivamente para mí por 10 minutos al seleccionarla, **para** completar mis datos de pago sin riesgo de que alguien más la reserve.
 
@@ -130,7 +130,7 @@
     ```
 
 ### HU9: Resolución de Carrera Pago-Expiración
-**Story Point**: 5 
+**Story Point**: 3
 
 **Como** sistema, **quiero** priorizar un pago exitoso que llega en el último segundo frente a la limpieza del worker, **para** no cancelar una venta legítima por milisegundos de desfase.
 
