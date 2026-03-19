@@ -199,3 +199,14 @@ El viajero busca fechas y elige una habitación específica. Al seleccionarla, e
 - React (frontend) consume Nest JS (backend) vía JSON/HTTP.
 - Backend persiste estado en base de datos relacional (recomendado: PostgreSQL por soporte robusto de locks).
 - Worker de expiración ejecuta tareas periódicas contra la misma base de datos.
+
+
+### 9.2 Data storage & privacy
+
+- Entidades mínimas sugeridas:
+  - `Hotel`
+  - `Room`
+  - `Hold`
+  - `Reservation`
+  - `Payment`
+
