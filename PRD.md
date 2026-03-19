@@ -107,3 +107,12 @@ No se incluye autenticación ni administración avanzada; los datos iniciales (h
   - Evita cobro/reserva duplicada por reintentos.
 - **Confirmación**: se muestra el estado final (confirmado) con código de reserva.
   - Asegura cierre de transacción de negocio.
+
+  ### 5.3 Advanced features & edge cases
+
+- Dos usuarios intentan bloquear la misma habitación/rango casi al mismo tiempo.
+- Usuario refresca la página durante el hold: la UI debe recuperar el estado del hold.
+- Usuario intenta pagar después de que el hold expiró.
+- Reintento de pago por timeout de red: se debe aplicar idempotencia.
+- Pago fallido: el hold se libera inmediatamente.
+- Worker cae temporalmente: los holds expirados deben liberarse al reanudarse el worker (eventual consistency acotada).
