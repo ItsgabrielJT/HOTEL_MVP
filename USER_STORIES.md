@@ -30,3 +30,8 @@
 ### HU6: Confirmación Definitiva de Reserva
 
 **Como** viajero, **quiero** que mi reserva pase de "Bloqueada" a "Confirmada" tras el pago, **para** recibir mi garantía de estancia.
+
+
+### HU7: Liberación Proactiva por Fallo de Pago
+
+**Como** sistema, **quiero** liberar la habitación de inmediato si el pago es rechazado, **para** que el hotel no pierda oportunidades de venta con otros clientes.
