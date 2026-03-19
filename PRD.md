@@ -32,17 +32,12 @@ No se incluye autenticación ni administración avanzada; los datos iniciales (h
 
 ## 3. Usuarios y roles
 
-### 3.1 Tipos de usuarios
-
-- Viajero (huésped)
-- Administrador del hotel
-
-### 3.2 Necesidades
+### 3.1 Usuarios
 
 - **Viajero (huésped)**: busca una habitación disponible, la bloquea durante el check-out y completa el pago dentro de un límite de tiempo, con confirmación inmediata.
 - **Administrador del hotel**: necesita que el inventario no quede “secuestrado” por bloqueos abandonados; requiere liberación automática y consistencia del estado.
 
-### 3.3 Roles & permissions
+### 3.2 Roles & permissions
 
 - **Viajero (sin login)**: acceso público a búsqueda, selección, check-out, pago simulado y confirmación.
 - **Administrador del hotel (sin login en MVP)**: necesidades cubiertas indirectamente por la lógica automática de expiración; no hay UI ni endpoints protegidos de administración.
