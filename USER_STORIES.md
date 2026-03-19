@@ -66,6 +66,14 @@
 
 **Como** viajero, **quiero** que mi pago se procese una sola vez ante reintentos de red, **para** evitar cargos duplicados en mi cuenta.
 
+* **Criterios de Aceptación (Gherkin):**
+    ```gherkin
+    Scenario: Reintento de pago con misma clave de transacción
+      Given que un pago ya fue procesado con éxito para el Hold "ID-99"
+      When el sistema recibe una solicitud idéntica con la misma clave de idempotencia
+      Then el sistema debe retornar el éxito de la transacción anterior sin realizar un nuevo cobro
+    ```
+
 ### HU6: Confirmación Definitiva de Reserva
 
 **Como** viajero, **quiero** que mi reserva pase de "Bloqueada" a "Confirmada" tras el pago, **para** recibir mi garantía de estancia.
