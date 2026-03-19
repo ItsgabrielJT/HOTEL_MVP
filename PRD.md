@@ -156,3 +156,7 @@ flowchart TD
 
     Q --> R[Fin]
 ```
+
+## 6. Narrative
+
+El viajero busca fechas y elige una habitación específica. Al seleccionarla, el sistema la bloquea durante 10 minutos para que el viajero pueda completar el check-out con seguridad. Si el pago simulado se confirma dentro del tiempo, la reserva queda confirmada; si no, el sistema libera la habitación automáticamente para que otros usuarios puedan reservarla, manteniendo el inventario siempre vendible.
