@@ -170,6 +170,14 @@ El viajero busca fechas y elige una habitación específica. Al seleccionarla, e
 | El pago tarda más de lo esperado y el bloqueo expira mientras se procesa. | Alto | Implementar un estado intermedio `PROCESSING_PAYMENT`. Mientras la pasarela responda, el bloqueo no debe expirar. Si el pago entra después de la expiración, el sistema debe realizar un "reintegro simulado" automático. |
 | El usuario hace clic varias veces o hay un reintento de red. | Crítico | Implementación obligatoria de **Idempotency-Keys** en los headers de la petición. El backend debe registrar cada intento de pago y rechazar duplicados para el mismo ID de bloqueo. |
 
+### 7.2 Riesgos de Negocio
+
+| Riesgo | Impacto | Estrategia de Mitigación |
+| :--- | :--- | :--- |
+| Usuarios o bots bloquean todas las habitaciones sin intención de pagar. | Crítico | Implementar **Rate Limiting** por IP en el endpoint de creación de bloqueos (`POST /holds`). Limitar a un máximo de 3 bloqueos activos por sesión de usuario no identificado. |
+| El timer de 10 minutos genera ansiedad y el usuario abandona la compra. | Medio | UX optimizada: Mostrar el contador de forma informativa pero no intrusiva. Proporcionar mensajes claros de que su lugar está asegurado para reducir la presión. |
+| El usuario cierra la pestaña y la habitación queda bloqueada 10 min innecesariamente. | Bajo | Implementar un evento `onBeforeUnload` en el navegador que intente enviar una petición de "liberación voluntaria" (`DELETE /holds/id`) si el usuario abandona el flujo antes de pagar. |
+
 ---
 
 ## 8. Metricas de éxito
