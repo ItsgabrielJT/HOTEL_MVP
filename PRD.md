@@ -158,11 +158,17 @@ El viajero busca fechas y elige una habitación específica. Al seleccionarla, e
 
 ---
 
-## 7. Suposiciones, Riesgos y Preguntas Abiertas
-* **Suposiciones:** Se asume que 10 minutos es el tiempo suficiente para el 95% de los usuarios para completar el pago.
-* **Riesgos Técnicos:** Saturación de la tabla de disponibilidad bajo alto volumen de bloqueos simultáneos.
-* **Riesgos de Negocio:** Usuarios malintencionados bloqueando inventario sin intención de compra (DoS de inventario).
-* **Preguntas Abiertas:** ¿Se debe permitir extender el timer si el usuario está interactuando activamente con el formulario?
+## 7. Riesgos y Mitigaciones
+
+### 7.1 Riesgos Técnicos
+
+| Riesgo | Impacto | Estrategia de Mitigación |
+| :--- | :--- | :--- |
+| Dos usuarios bloquean la misma habitación al mismo milisegundo. | Crítico | Uso de transacciones de base de datos con **Bloqueo Pesimista** (`SELECT ... FOR UPDATE`). Esto asegura que solo un hilo de ejecución pueda leer y marcar la habitación como bloqueada a la vez. |
+| Desincronización entre el contador del Frontend (React) y el tiempo real del servidor. | Medio | El Frontend no debe calcular el fin del tiempo de forma aislada. Debe recibir el `expires_at` del servidor y sincronizarse mediante peticiones periódicas de estado. El servidor tiene la última palabra. |
+| El proceso que libera habitaciones cae, dejando inventario bloqueado indefinidamente. | Alto | Implementar el Worker como un proceso independiente e **idempotente**. Además, la lógica de búsqueda de disponibilidad debe filtrar proactivamente bloqueos cuya fecha actual sea mayor a su `expires_at`, incluso si el worker no los ha marcado como expirados aún. |
+| El pago tarda más de lo esperado y el bloqueo expira mientras se procesa. | Alto | Implementar un estado intermedio `PROCESSING_PAYMENT`. Mientras la pasarela responda, el bloqueo no debe expirar. Si el pago entra después de la expiración, el sistema debe realizar un "reintegro simulado" automático. |
+| El usuario hace clic varias veces o hay un reintento de red. | Crítico | Implementación obligatoria de **Idempotency-Keys** en los headers de la petición. El backend debe registrar cada intento de pago y rechazar duplicados para el mismo ID de bloqueo. |
 
 ---
 
