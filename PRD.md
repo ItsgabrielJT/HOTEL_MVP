@@ -184,3 +184,10 @@ El viajero busca fechas y elige una habitación específica. Al seleccionarla, e
 - Overbooking: 0 reservas confirmadas duplicadas por habitación/rango.
 - Conversión: confirmaciones / holds creados.
 - Recuperación de inventario: holds expirados liberados / total holds expirados.
+
+### 8.3 Technical metrics
+
+- p95 de `GET /availability` (objetivo inicial: < 300 ms con dataset pequeño de MVP).
+- p95 de `POST /holds` y `POST /payments` (objetivo inicial: < 500 ms).
+- Tasa de conflictos de concurrencia (intentos de hold fallidos por colisión).
+- Drift de expiración: tiempo máximo entre `expires_at` y liberación efectiva (objetivo inicial: < 60 s).
