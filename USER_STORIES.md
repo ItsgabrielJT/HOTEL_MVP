@@ -8,3 +8,7 @@
 ### HU1: Seeder de Inventario Inicial
 
 **Como** equipo de desarrollo, **quiero** contar con una carga automática de hoteles y habitaciones, **para** realizar pruebas funcionales sin depender de ingresos manuales.
+
+### HU2: Consulta de Disponibilidad Consistente
+
+**Como** viajero, **quiero** ver solo las habitaciones que no tienen reservas ni bloqueos activos, **para** tomar una decisión basada en la disponibilidad real del hotel.
