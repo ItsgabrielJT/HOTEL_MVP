@@ -17,3 +17,8 @@
 ### HU3: Bloqueo Atómico de Checkout (Hold)
 
 **Como** viajero, **quiero** que la habitación se aparte exclusivamente para mí por 10 minutos al seleccionarla, **para** completar mis datos de pago sin riesgo de que alguien más la reserve.
+
+   
+### HU4: Persistencia del Timer de Reserva
+
+**Como** viajero, **quiero** que el tiempo restante de mi bloqueo se mantenga si refresco la página, **para** no perder mi turno por un error del navegador.
