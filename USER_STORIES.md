@@ -39,3 +39,7 @@
 ### HU8: Expiración Automática de Bloqueos (Worker)
 
 **Como** administrador, **quiero** que el sistema libere automáticamente los bloqueos que superen los 10 minutos, **para** evitar que el inventario quede retenido por carritos abandonados.
+
+### HU9: Resolución de Carrera Pago-Expiración
+
+**Como** sistema, **quiero** priorizar un pago exitoso que llega en el último segundo frente a la limpieza del worker, **para** no cancelar una venta legítima por milisegundos de desfase.
