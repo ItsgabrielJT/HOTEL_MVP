@@ -29,6 +29,14 @@
 
 **Como** viajero, **quiero** ver solo las habitaciones que no tienen reservas ni bloqueos activos, **para** tomar una decisión basada en la disponibilidad real del hotel.
 
+* **Criterios de Aceptación (Gherkin):**
+    ```gherkin
+    Scenario: Exclusión de habitaciones con bloqueo temporal (Hold)
+      Given que la habitación "101" tiene un bloqueo activo (Hold)
+      When el viajero busca disponibilidad para las mismas fechas
+      Then el sistema no debe mostrar la habitación "101" en los resultados
+    ```
+
 
 ### HU3: Bloqueo Atómico de Checkout (Hold)
 
