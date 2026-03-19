@@ -47,3 +47,7 @@
 ### HU10: Protección contra Bloqueos Masivos (Rate Limiting)
 
 **Como** sistema, **quiero** limitar el número de bloqueos por dirección IP, **para** prevenir ataques de bots que intenten dejar al hotel sin disponibilidad.
+
+### HU11: Validación de Integridad de Fechas
+
+**Como** sistema, **quiero** validar que las fechas de reserva sean coherentes, **para** evitar errores lógicos en el inventario.
