@@ -94,3 +94,16 @@ No se incluye autenticación ni administración avanzada; los datos iniciales (h
 - Landing simple con buscador (fechas + ciudad/hotel opcional) y listado de habitaciones disponibles.
 - Selección de una habitación específica inicia el hold y redirige a check-out.
 - Check-out muestra datos mínimos, contador y botón “Pagar (simulado)”.
+
+### 5.2 Core experience
+
+- **Buscar habitaciones**: el usuario ingresa fecha de entrada/salida y ve habitaciones disponibles.
+  - Asegura transparencia al mostrar solo inventario realmente disponible (descuenta holds activos).
+- **Seleccionar habitación**: al elegir, el sistema crea un hold de 10 minutos o responde “no disponible”.
+  - Asegura consistencia usando bloqueo pesimista ante concurrencia.
+- **Check-out con timer**: el usuario completa datos básicos y ve el contador.
+  - Asegura claridad del estado temporal del inventario.
+- **Pagar (mock)**: el usuario confirma y el backend procesa pago idempotente.
+  - Evita cobro/reserva duplicada por reintentos.
+- **Confirmación**: se muestra el estado final (confirmado) con código de reserva.
+  - Asegura cierre de transacción de negocio.
