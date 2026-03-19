@@ -54,6 +54,14 @@
 
 **Como** viajero, **quiero** que el tiempo restante de mi bloqueo se mantenga si refresco la página, **para** no perder mi turno por un error del navegador.
 
+* **Criterios de Aceptación (Gherkin):**
+    ```gherkin
+    Scenario: Recuperación de estado de bloqueo
+      Given que el viajero tiene un bloqueo activo con 5 minutos restantes
+      When el viajero refresca la página de checkout
+      Then el contador visual debe reanudarse mostrando los 5 minutos restantes del servidor
+    ```
+
 ### HU5: Procesamiento de Pago Idempotente
 
 **Como** viajero, **quiero** que mi pago se procese una sola vez ante reintentos de red, **para** evitar cargos duplicados en mi cuenta.
