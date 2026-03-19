@@ -72,3 +72,8 @@ No se incluye autenticación ni administración avanzada; los datos iniciales (h
   - Se deben soportar claves de idempotencia por intento de pago para evitar cobros duplicados (p. ej. reintentos del cliente).
   - Un pago solo puede confirmar una reserva si existe un hold activo y no expirado.
   - Pago fallido debe liberar el hold (o marcarlo como `CANCELLED/RELEASED`) inmediatamente.
+
+- **Confirmación de reserva** (Priority: P0)
+  - Tras pago exitoso, se debe crear una reserva confirmada vinculada a la habitación y al rango de fechas.
+  - El hold debe transicionar a `CONFIRMED` (o cerrarse) y no volver a liberar inventario.
+  - Se debe presentar una pantalla de confirmación (número/código de reserva).
