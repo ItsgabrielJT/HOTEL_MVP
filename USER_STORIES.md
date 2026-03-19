@@ -130,6 +130,14 @@
 
 **Como** sistema, **quiero** limitar el número de bloqueos por dirección IP, **para** prevenir ataques de bots que intenten dejar al hotel sin disponibilidad.
 
+* **Criterios de Aceptación (Gherkin):**
+    ```gherkin
+    Scenario: Límite de bloqueos excedido
+      Given que un usuario ya tiene 3 bloqueos activos desde la misma IP
+      When intenta realizar un cuarto bloqueo de habitación
+      Then el sistema debe rechazar la solicitud con un error de "Límite excedido"
+    ```
+
 ### HU11: Validación de Integridad de Fechas
 
 **Como** sistema, **quiero** validar que las fechas de reserva sean coherentes, **para** evitar errores lógicos en el inventario.
