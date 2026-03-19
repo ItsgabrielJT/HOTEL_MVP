@@ -82,3 +82,7 @@ No se incluye autenticación ni administración avanzada; los datos iniciales (h
   - Al entrar al check-out, el usuario ve el tiempo restante del hold.
   - Al llegar a 0, el flujo debe bloquear el pago y guiar al usuario a reintentar (por ejemplo, volver a seleccionar).
   - La UI debe sincronizar su estado con el backend (no confiar solo en el reloj del cliente).
+
+- **Seeder de datos** (Priority: P1)
+  - Carga inicial de hotel(es), habitaciones (por ID único) y tarifas básicas para permitir pruebas end-to-end.
+  - La creación de datos de prueba no requiere UI.
