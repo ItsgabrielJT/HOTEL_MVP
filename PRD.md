@@ -46,3 +46,18 @@ No se incluye autenticación ni administración avanzada; los datos iniciales (h
 
 - **Viajero (sin login)**: acceso público a búsqueda, selección, check-out, pago simulado y confirmación.
 - **Administrador del hotel (sin login en MVP)**: necesidades cubiertas indirectamente por la lógica automática de expiración; no hay UI ni endpoints protegidos de administración.
+
+## 4. Functional requirements
+
+- **Buscador de disponibilidad atómico** (Priority: P0)
+  - Consultar disponibilidad por rango de fechas para habitaciones específicas.
+  - La disponibilidad debe descontar:
+    - Reservas confirmadas.
+    - Bloqueos temporales activos (holds) no expirados.
+  - Si una habitación está bloqueada/confirmada para cualquier fecha del rango solicitado, debe aparecer como no disponible para ese rango.
+
+- **Bloqueo pesimista de check-out (10 minutos)** (Priority: P0)
+  - Al seleccionar una habitación y rango de fechas, el sistema debe intentar crear un hold.
+  - El hold debe crear un “bloqueo temporal” con `expires_at = now() + 10 minutos`.
+  - El proceso de creación del hold debe ser atómico y seguro ante concurrencia.
+  - En la capa de persistencia, se debe usar transacción y `SELECT ... FOR UPDATE` (o equivalente) para evitar que dos holds/reservas se creen simultáneamente para la misma habitación/rango.
