@@ -77,3 +77,8 @@ No se incluye autenticación ni administración avanzada; los datos iniciales (h
   - Tras pago exitoso, se debe crear una reserva confirmada vinculada a la habitación y al rango de fechas.
   - El hold debe transicionar a `CONFIRMED` (o cerrarse) y no volver a liberar inventario.
   - Se debe presentar una pantalla de confirmación (número/código de reserva).
+
+  - **UI con contador regresivo de 10 minutos** (Priority: P0)
+  - Al entrar al check-out, el usuario ve el tiempo restante del hold.
+  - Al llegar a 0, el flujo debe bloquear el pago y guiar al usuario a reintentar (por ejemplo, volver a seleccionar).
+  - La UI debe sincronizar su estado con el backend (no confiar solo en el reloj del cliente).
