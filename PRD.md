@@ -191,3 +191,11 @@ El viajero busca fechas y elige una habitación específica. Al seleccionarla, e
 - p95 de `POST /holds` y `POST /payments` (objetivo inicial: < 500 ms).
 - Tasa de conflictos de concurrencia (intentos de hold fallidos por colisión).
 - Drift de expiración: tiempo máximo entre `expires_at` y liberación efectiva (objetivo inicial: < 60 s).
+
+## 9. Technical considerations
+
+### 9.1 Integration points
+
+- React (frontend) consume Nest JS (backend) vía JSON/HTTP.
+- Backend persiste estado en base de datos relacional (recomendado: PostgreSQL por soporte robusto de locks).
+- Worker de expiración ejecuta tareas periódicas contra la misma base de datos.
