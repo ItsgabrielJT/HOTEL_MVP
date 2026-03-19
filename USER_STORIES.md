@@ -26,3 +26,7 @@
 ### HU5: Procesamiento de Pago Idempotente
 
 **Como** viajero, **quiero** que mi pago se procese una sola vez ante reintentos de red, **para** evitar cargos duplicados en mi cuenta.
+
+### HU6: Confirmación Definitiva de Reserva
+
+**Como** viajero, **quiero** que mi reserva pase de "Bloqueada" a "Confirmada" tras el pago, **para** recibir mi garantía de estancia.
