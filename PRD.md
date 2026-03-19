@@ -170,3 +170,11 @@ El viajero busca fechas y elige una habitación específica. Al seleccionarla, e
 * **Preguntas Abiertas:** ¿Se debe permitir extender el timer si el usuario está interactuando activamente con el formulario?
 
 ---
+
+## 8. Success metrics
+
+### 8.1 User-centric metrics
+
+- Tasa de éxito de creación de hold (selección) sin errores.
+- Tiempo medio desde selección hasta confirmación.
+- Porcentaje de holds que expiran (indicador de fricción del check-out).
