@@ -104,6 +104,15 @@
 
 **Como** administrador, **quiero** que el sistema libere automáticamente los bloqueos que superen los 10 minutos, **para** evitar que el inventario quede retenido por carritos abandonados.
 
+* **Criterios de Aceptación (Gherkin):**
+    ```gherkin
+    Scenario: Timeout de reserva alcanzado
+      Given que un bloqueo (Hold) ha superado los 10 minutos de antigüedad sin pago
+      When el proceso de limpieza (Worker) se ejecuta
+      Then el estado del bloqueo debe cambiar a "EXPIRED"
+      And la habitación asociada debe quedar libre para nuevas búsquedas
+    ```
+
 ### HU9: Resolución de Carrera Pago-Expiración
 
 **Como** sistema, **quiero** priorizar un pago exitoso que llega en el último segundo frente a la limpieza del worker, **para** no cancelar una venta legítima por milisegundos de desfase.
