@@ -117,6 +117,15 @@
 
 **Como** sistema, **quiero** priorizar un pago exitoso que llega en el último segundo frente a la limpieza del worker, **para** no cancelar una venta legítima por milisegundos de desfase.
 
+* **Criterios de Aceptación (Gherkin):**
+    ```gherkin
+    Scenario: Pago confirmado en el segundo límite
+      Given un bloqueo que expira en el tiempo T
+      When un pago exitoso llega en el tiempo T + 100ms
+      And el worker de limpieza aún no ha procesado ese registro
+      Then el sistema debe permitir la confirmación de la reserva y anular la expiración
+    ```
+
 ### HU10: Protección contra Bloqueos Masivos (Rate Limiting)
 
 **Como** sistema, **quiero** limitar el número de bloqueos por dirección IP, **para** prevenir ataques de bots que intenten dejar al hotel sin disponibilidad.
