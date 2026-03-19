@@ -78,6 +78,14 @@
 
 **Como** viajero, **quiero** que mi reserva pase de "Bloqueada" a "Confirmada" tras el pago, **para** recibir mi garantía de estancia.
 
+* **Criterios de Aceptación (Gherkin):**
+    ```gherkin
+    Scenario: Transición de estado tras pago exitoso
+      Given que existe un bloqueo (Hold) en estado "PENDING"
+      When el procesador de pagos confirma la transacción como "SUCCESS"
+      Then el sistema debe cambiar el estado de la reserva a "CONFIRMED"
+      And el inventario debe quedar descontado permanentemente
+    ```
 
 ### HU7: Liberación Proactiva por Fallo de Pago
 
