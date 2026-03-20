@@ -74,3 +74,8 @@
 * **Dev (Backend):**
     * Configurar tarea programada (ej. FastAPI BackgroundTasks o un script loop).
     * Consulta: `UPDATE holds SET status = 'EXPIRED' WHERE expires_at < NOW()`.
+
+
+#### **HU10: Resolución de Carrera Pago-Expiración (5 SP)**
+* **Dev (Backend):**
+    * Implementar bloqueo pesimista en el Worker para que no pueda expirar un Hold que está siendo procesado por el endpoint de Pago.
