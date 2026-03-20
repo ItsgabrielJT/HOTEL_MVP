@@ -70,6 +70,7 @@
     * Pantalla de éxito con resumen de reserva.
 * **QA:**
     * Verificar que tras la confirmación, el Hold ya no sea elegible para ser borrado por el worker.
+    * Test de colisión de hashes (generar 10,000 y validar unicidad).
     
 ### 4. Background Tasks (Workers)
 #### **HU7: Liberación Proactiva por Fallo (2 SP)**
