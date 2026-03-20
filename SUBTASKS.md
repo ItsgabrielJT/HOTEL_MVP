@@ -88,7 +88,8 @@
 #### **HU9: Resolución de Carrera Pago-Expiración (5 SP)**
 * **Dev (Backend):**
     * Implementar bloqueo pesimista en el Worker para que no pueda expirar un Hold que está siendo procesado por el endpoint de Pago.
-
+* **QA:**
+    * **Stress Test:** Lanzar el worker y el pago al mismo milisegundo sobre el mismo registro.
 
 ### 5. Seguridad y Validaciones
 #### **HU10: Protección Rate Limiting (5 SP)**
