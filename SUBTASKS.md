@@ -96,7 +96,9 @@
 * **Dev (Backend):**
     * Instalar e integrar `slowapi` o Redis-limiter.
     * Configurar límite: "Max 3 holds por IP cada 5 minutos".
-
+* **QA:**
+    * Script de Python para disparar 100 requests y validar retorno de error 429.
+      
 #### **HU11: Integridad de Fechas (3 SP)**
 * **Dev (Backend):**
     * Validación en Pydantic schemas: `checkout > checkin` y `checkin >= today`.
