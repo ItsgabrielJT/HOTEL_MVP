@@ -68,8 +68,8 @@
     * Utilizar librería de Hash o NanoID para el código de reserva.
 * **Dev (Frontend):**
     * Pantalla de éxito con resumen de reserva.
-
-
+* **QA:**
+    * Verificar que tras la confirmación, el Hold ya no sea elegible para ser borrado por el worker.
     
 ### 4. Background Tasks (Workers)
 #### **HU7: Liberación Proactiva por Fallo (2 SP)**
