@@ -54,40 +54,37 @@
 #### **HU6: Confirmación Definitiva de Reserva (3 SP)**
 * **Dev (Backend):**
     * Lógica de transición: `Hold (Pending) -> Reservation (Confirmed)`.
+    * Utilizar librería de Hash o NanoID para el código de reserva.
 * **Dev (Frontend):**
     * Pantalla de éxito con resumen de reserva.
 
 
-#### **HU7: Generación de Código Único (2 SP)**
-* **Dev (Backend):**
-    * Utilizar librería de Hash o NanoID para el código de reserva.
-
     
 ### 4. Background Tasks (Workers)
-#### **HU8: Liberación Proactiva por Fallo (2 SP)**
+#### **HU7: Liberación Proactiva por Fallo (2 SP)**
 * **Dev (Backend):**
     * Si el simulador de pago retorna `Status: Declined`, ejecutar `DELETE` o `Update status: Released` al Hold.
 
     
     
-#### **HU9: Expiración Automática - Worker (3 SP)**
+#### **HU8: Expiración Automática - Worker (3 SP)**
 * **Dev (Backend):**
     * Configurar tarea programada (ej. FastAPI BackgroundTasks o un script loop).
     * Consulta: `UPDATE holds SET status = 'EXPIRED' WHERE expires_at < NOW()`.
 
 
-#### **HU10: Resolución de Carrera Pago-Expiración (5 SP)**
+#### **HU9: Resolución de Carrera Pago-Expiración (5 SP)**
 * **Dev (Backend):**
     * Implementar bloqueo pesimista en el Worker para que no pueda expirar un Hold que está siendo procesado por el endpoint de Pago.
 
 
 ### 5. Seguridad y Validaciones
-#### **HU11: Protección Rate Limiting (5 SP)**
+#### **HU10: Protección Rate Limiting (5 SP)**
 * **Dev (Backend):**
     * Instalar e integrar `slowapi` o Redis-limiter.
     * Configurar límite: "Max 3 holds por IP cada 5 minutos".
 
-#### **HU12: Integridad de Fechas (3 SP)**
+#### **HU11: Integridad de Fechas (3 SP)**
 * **Dev (Backend):**
     * Validación en Pydantic schemas: `checkout > checkin` y `checkin >= today`.
 * **Dev (Frontend):**
