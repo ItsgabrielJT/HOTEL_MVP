@@ -49,7 +49,8 @@
 * **Dev (Frontend):**
     * Implementar Hook `useTimer` que consuma el tiempo del servidor.
     * Persistir `holdId` en `localStorage` para recuperar el estado tras F5.
-
+* **QA:**
+    * Verificar que al cambiar el reloj de la PC local, el timer no se altere (debe mandar el servidor).
 
 ### 3. Pagos e Integridad
 #### **HU5: Procesamiento de Pago Idempotente (5 SP)**
