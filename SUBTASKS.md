@@ -59,7 +59,8 @@
     * Middleware para interceptar el header `X-Idempotency-Key` y retornar respuesta cacheada si ya existe.
 * **Dev (Frontend):**
     * Generar UUID en el cliente antes de disparar el request de pago.
-
+* **QA:**
+    * Simular reintentos rápidos (Double click) en el botón de pago y verificar que solo exista un registro en DB.
 
 #### **HU6: Confirmación Definitiva de Reserva (3 SP)**
 * **Dev (Backend):**
