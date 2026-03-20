@@ -29,8 +29,10 @@
     * Crear componente de Buscador con selectores de fecha (DatePickers).
     * Mapear resultados en tarjetas de habitaciones.
 * **QA:**
-    * **Unit:** Testear función de solapamiento de fechas (Overlap logic).
-    * **Integration:** Mockear un Hold activo y verificar que la habitación desaparece de la lista.
+    * Crear un escenario en Serenity donde un usuario "A" bloquea una habitación y un usuario "B" realiza una búsqueda inmediata para verificar que la habitación desaparece del flujo de venta.
+    * Verificar que los formatos de fecha sean consistentes entre el buscador y la respuesta de la API (problemas de zona horaria o formatos locales).
+    * Validar el comportamiento del sistema cuando el inventario cambia mientras el usuario tiene los resultados en pantalla (¿Cómo se informa al usuario si intenta seleccionar algo que acaba de ser bloqueado?).
+    * Probar combinaciones de fechas extremas (reservas a un año vista, años bisiestos) para asegurar que la lógica de negocio no se rompa.
 
 #### **HU3: Bloqueo Atómico de Checkout (8 SP) - CRÍTICA**
 * **Dev (Backend):**
