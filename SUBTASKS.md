@@ -61,3 +61,9 @@
 #### **HU7: Generación de Código Único (2 SP)**
 * **Dev (Backend):**
     * Utilizar librería de Hash o NanoID para el código de reserva.
+
+    
+### 4. Background Tasks (Workers)
+#### **HU8: Liberación Proactiva por Fallo (2 SP)**
+* **Dev (Backend):**
+    * Si el simulador de pago retorna `Status: Declined`, ejecutar `DELETE` o `Update status: Released` al Hold.
