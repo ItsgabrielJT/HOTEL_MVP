@@ -86,3 +86,9 @@
 * **Dev (Backend):**
     * Instalar e integrar `slowapi` o Redis-limiter.
     * Configurar límite: "Max 3 holds por IP cada 5 minutos".
+
+#### **HU12: Integridad de Fechas (3 SP)**
+* **Dev (Backend):**
+    * Validación en Pydantic schemas: `checkout > checkin` y `checkin >= today`.
+* **Dev (Frontend):**
+    * Deshabilitar fechas pasadas en el calendario.
