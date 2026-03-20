@@ -23,3 +23,13 @@
 * **Dev (Frontend):**
     * Crear componente de Buscador con selectores de fecha (DatePickers).
     * Mapear resultados en tarjetas de habitaciones.
+
+
+#### **HU3: Bloqueo Atómico de Checkout (8 SP) - CRÍTICA**
+* **Dev (Backend):**
+    * Crear endpoint `POST /rooms/{id}/hold`.
+    * Implementar bloque de transacción: `BEGIN -> SELECT FOR UPDATE -> INSERT hold -> COMMIT`.
+    * Manejar excepción de "Row Locked" y retornar error 409 (Conflict).
+* **Dev (Frontend):**
+    * Implementar botón "Reservar" con estado de carga (Loading).
+    * Manejo de errores específicos (Toast de "Alguien te ganó la habitación").
