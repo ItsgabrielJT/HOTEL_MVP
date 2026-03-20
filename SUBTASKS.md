@@ -16,6 +16,8 @@
 * **Dev (Backend):**
     * Crear script de Node para poblar tablas `Hotel` y `Room` con datos realistas.
     * Implementar comando de consola (ej. `make seed`) para ejecución rápida.
+* **QA:**
+    * Validar integridad referencial tras el seeding (que no existan habitaciones sin hotel).
     
 ### 2. Ciclo de Búsqueda y Reserva
 #### **HU2: Consulta de Disponibilidad Consistente (3 SP)**
