@@ -13,6 +13,27 @@
     * Validar que las "Reglas de Protección de Ramas" en GitHub impidan el merge si los tests de integración (creados por los devs) fallan.
     * Configurar herramientas de carga (como k6 o Locust) para validar que el pool de conexiones configurado por los devs no se sature bajo concurrencia básica.
 
+
+* **Dev (Test unitarios):**
+    * Infraestructura: Configurar Docker Compose con PostgreSQL 15+ y asegurar la persistencia de volúmenes.
+
+    * ORM & Migraciones: Inicializar SQLAlchemy/SQLModel y Alembic; definir la primera migración del esquema base.
+
+    * Integridad de Datos: Configurar el nivel de aislamiento de transacciones (ej. READ COMMITTED o SERIALIZABLE) en el motor de conexión.
+
+* **Dev (CI/CD Pipeline):**
+
+    * Crear el flujo de GitHub Actions que automatice:
+
+    * Linter y chequeo de tipos (EsLint).
+
+    * Tests Unitarios: Configurar Vitest/EsLint para pruebas de lógica aislada.
+
+    * Tests de Integración: Configurar el entorno de base de datos efímero en CI para probar los bloqueos de fila (SELECT FOR UPDATE).
+
+    * Prueba de Concepto (PoC): Escribir un test de integración que fuerce un bloqueo de fila y valide que un segundo proceso espera o falla (validación técnica del FOR UPDATE).
+
+
 #### **HU1: Seeder de Inventario Inicial (2 SP)**
 * **Dev (Backend):**
     * Crear script de Node para poblar tablas `Hotel` y `Room` con datos realistas.
