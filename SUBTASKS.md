@@ -79,3 +79,10 @@
 #### **HU10: Resolución de Carrera Pago-Expiración (5 SP)**
 * **Dev (Backend):**
     * Implementar bloqueo pesimista en el Worker para que no pueda expirar un Hold que está siendo procesado por el endpoint de Pago.
+
+
+### 5. Seguridad y Validaciones
+#### **HU11: Protección Rate Limiting (5 SP)**
+* **Dev (Backend):**
+    * Instalar e integrar `slowapi` o Redis-limiter.
+    * Configurar límite: "Max 3 holds por IP cada 5 minutos".
