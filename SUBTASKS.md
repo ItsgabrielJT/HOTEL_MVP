@@ -8,7 +8,9 @@
     * Instalar SQLAlchemy/SQLModel y Alembic para migraciones.
     * Configurar el nivel de aislamiento de transacciones en la conexión.
     * Crear scripts de GitHub Actions para CI (Linter + Vitest).
-
+* **QA:**
+    * Crear test de integración de "stress de conexión" para validar que la BD soporta bloqueos de fila concurrentes.
+    * Verificar pipeline de CI ante fallos de sintaxis.
 
 #### **HU1: Seeder de Inventario Inicial (2 SP)**
 * **Dev (Backend):**
