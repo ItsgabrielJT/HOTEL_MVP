@@ -40,3 +40,12 @@
 * **Dev (Frontend):**
     * Implementar Hook `useTimer` que consuma el tiempo del servidor.
     * Persistir `holdId` en `localStorage` para recuperar el estado tras F5.
+
+
+### 3. Pagos e Integridad
+#### **HU5: Procesamiento de Pago Idempotente (5 SP)**
+* **Dev (Backend):**
+    * Crear tabla `Payments` con campo `idempotency_key` único.
+    * Middleware para interceptar el header `X-Idempotency-Key` y retornar respuesta cacheada si ya existe.
+* **Dev (Frontend):**
+    * Generar UUID en el cliente antes de disparar el request de pago.
