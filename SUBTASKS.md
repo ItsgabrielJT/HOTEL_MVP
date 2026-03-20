@@ -39,7 +39,10 @@
 * **Dev (Frontend):**
     * Implementar botón "Reservar" con estado de carga (Loading).
     * Manejo de errores específicos (Toast de "Alguien te ganó la habitación").
-
+* **QA:**
+    * **E2E (Serenity/Cucumber):** Simular dos navegadores intentando bloquear el mismo ID al mismo tiempo.
+    * **Unit:** Validar que el campo `expires_at` sea exactamente `now + 10 min`.
+      
 #### **HU4: Persistencia del Timer de Reserva (3 SP)**
 * **Dev (Backend):**
     * Endpoint `GET /holds/{id}` que calcule `remaining_seconds` en tiempo real.
