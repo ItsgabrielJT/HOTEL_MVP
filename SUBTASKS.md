@@ -104,3 +104,6 @@
     * Validación en Pydantic schemas: `checkout > checkin` y `checkin >= today`.
 * **Dev (Frontend):**
     * Deshabilitar fechas pasadas en el calendario.
+* **QA:**
+    * Testing de frontera (Check-in hoy, Check-out hoy).
+
