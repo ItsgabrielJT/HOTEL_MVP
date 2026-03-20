@@ -77,7 +77,7 @@
 * **Dev (Backend):**
     * Si el simulador de pago retorna `Status: Declined`, ejecutar `DELETE` o `Update status: Released` al Hold.
 * **QA:**
-    * Test de colisión de hashes (generar 10,000 y validar unicidad).
+    * Mockear respuesta declinada y verificar disponibilidad inmediata en el buscador.
     
 #### **HU8: Expiración Automática - Worker (3 SP)**
 * **Dev (Backend):**
