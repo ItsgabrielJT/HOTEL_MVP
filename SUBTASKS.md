@@ -49,3 +49,10 @@
     * Middleware para interceptar el header `X-Idempotency-Key` y retornar respuesta cacheada si ya existe.
 * **Dev (Frontend):**
     * Generar UUID en el cliente antes de disparar el request de pago.
+
+
+#### **HU6: Confirmación Definitiva de Reserva (3 SP)**
+* **Dev (Backend):**
+    * Lógica de transición: `Hold (Pending) -> Reservation (Confirmed)`.
+* **Dev (Frontend):**
+    * Pantalla de éxito con resumen de reserva.
