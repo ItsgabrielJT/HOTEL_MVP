@@ -20,3 +20,6 @@
 * **Dev (Backend):**
     * Crear endpoint `GET /rooms/available` que reciba `checkin` y `checkout`.
     * Implementar lógica SQL (Subquery o Join) que filtre habitaciones que tengan `Reservations` o `Holds` activos en ese rango de fechas.
+* **Dev (Frontend):**
+    * Crear componente de Buscador con selectores de fecha (DatePickers).
+    * Mapear resultados en tarjetas de habitaciones.
