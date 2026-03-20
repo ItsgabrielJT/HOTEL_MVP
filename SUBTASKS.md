@@ -27,7 +27,9 @@
 * **Dev (Frontend):**
     * Crear componente de Buscador con selectores de fecha (DatePickers).
     * Mapear resultados en tarjetas de habitaciones.
-
+* **QA:**
+    * **Unit:** Testear función de solapamiento de fechas (Overlap logic).
+    * **Integration:** Mockear un Hold activo y verificar que la habitación desaparece de la lista.
 
 #### **HU3: Bloqueo Atómico de Checkout (8 SP) - CRÍTICA**
 * **Dev (Backend):**
