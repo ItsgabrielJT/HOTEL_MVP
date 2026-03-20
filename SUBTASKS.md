@@ -55,6 +55,19 @@
     * Validar el comportamiento del sistema cuando el inventario cambia mientras el usuario tiene los resultados en pantalla (¿Cómo se informa al usuario si intenta seleccionar algo que acaba de ser bloqueado?).
     * Probar combinaciones de fechas extremas (reservas a un año vista, años bisiestos) para asegurar que la lógica de negocio no se rompa.
 
+* **Dev (Fullstack / Pruebas unitarias):**
+
+    * Backend:
+
+    * Crear endpoint GET /rooms/available con validación de parámetros checkin y checkout (ISO 8601).
+
+    * Implementar la consulta SQL/ORM con lógica de solapamiento: una habitación no está disponible si existe una reserva o hold donde (Reserva.inicio < Checkout_Busqueda) AND (Reserva.fin > Checkin_Busqueda).
+
+    * Tests Unitarios (Dev): Probar exhaustivamente la función de lógica de fechas (casos de borde: reservas que terminan el mismo día que inicia la búsqueda, rangos de un solo día, etc.).
+
+    * Tests de Integración (Dev): Persistir un Hold activo en una base de datos de prueba y validar que el endpoint de disponibilidad lo excluye correctamente.
+
+
 #### **HU3: Bloqueo Atómico de Checkout (8 SP) - CRÍTICA**
 * **Dev (Backend):**
     * Crear endpoint `POST /rooms/{id}/hold`.
