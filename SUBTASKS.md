@@ -82,7 +82,8 @@
 * **Dev (Backend):**
     * Configurar tarea programada (ej. FastAPI BackgroundTasks o un script loop).
     * Consulta: `UPDATE holds SET status = 'EXPIRED' WHERE expires_at < NOW()`.
-
+* **QA:**
+    * Mockear respuesta declinada y verificar disponibilidad inmediata en el buscador.
 
 #### **HU9: Resolución de Carrera Pago-Expiración (5 SP)**
 * **Dev (Backend):**
