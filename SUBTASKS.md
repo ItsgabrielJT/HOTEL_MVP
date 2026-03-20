@@ -33,3 +33,10 @@
 * **Dev (Frontend):**
     * Implementar botón "Reservar" con estado de carga (Loading).
     * Manejo de errores específicos (Toast de "Alguien te ganó la habitación").
+
+    #### **HU4: Persistencia del Timer de Reserva (3 SP)**
+* **Dev (Backend):**
+    * Endpoint `GET /holds/{id}` que calcule `remaining_seconds` en tiempo real.
+* **Dev (Frontend):**
+    * Implementar Hook `useTimer` que consuma el tiempo del servidor.
+    * Persistir `holdId` en `localStorage` para recuperar el estado tras F5.
