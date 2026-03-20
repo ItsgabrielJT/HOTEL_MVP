@@ -70,3 +70,7 @@
 
     
     
+#### **HU9: Expiración Automática - Worker (3 SP)**
+* **Dev (Backend):**
+    * Configurar tarea programada (ej. FastAPI BackgroundTasks o un script loop).
+    * Consulta: `UPDATE holds SET status = 'EXPIRED' WHERE expires_at < NOW()`.
