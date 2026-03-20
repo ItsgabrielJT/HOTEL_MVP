@@ -9,8 +9,9 @@
     * Configurar el nivel de aislamiento de transacciones en la conexión.
     * Crear scripts de GitHub Actions para CI (Linter + Vitest).
 * **QA:**
-    * Crear test de integración de "stress de conexión" para validar que la BD soporta bloqueos de fila concurrentes.
-    * Verificar pipeline de CI ante fallos de sintaxis.
+    * Crear scripts de verificación de despliegue que aseguren que la BD y la API están comunicadas tras el levantamiento de los contenedores.
+    * Validar que las "Reglas de Protección de Ramas" en GitHub impidan el merge si los tests de integración (creados por los devs) fallan.
+    * Configurar herramientas de carga (como k6 o Locust) para validar que el pool de conexiones configurado por los devs no se sature bajo concurrencia básica.
 
 #### **HU1: Seeder de Inventario Inicial (2 SP)**
 * **Dev (Backend):**
