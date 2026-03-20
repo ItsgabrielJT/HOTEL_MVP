@@ -56,3 +56,8 @@
     * Lógica de transición: `Hold (Pending) -> Reservation (Confirmed)`.
 * **Dev (Frontend):**
     * Pantalla de éxito con resumen de reserva.
+
+
+#### **HU7: Generación de Código Único (2 SP)**
+* **Dev (Backend):**
+    * Utilizar librería de Hash o NanoID para el código de reserva.
