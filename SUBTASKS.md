@@ -75,8 +75,8 @@
 #### **HU7: Liberación Proactiva por Fallo (2 SP)**
 * **Dev (Backend):**
     * Si el simulador de pago retorna `Status: Declined`, ejecutar `DELETE` o `Update status: Released` al Hold.
-
-    
+* **QA:**
+    * Test de colisión de hashes (generar 10,000 y validar unicidad).
     
 #### **HU8: Expiración Automática - Worker (3 SP)**
 * **Dev (Backend):**
