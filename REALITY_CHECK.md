@@ -10,10 +10,10 @@ El MVP del motor de reservas fue desarrollado y validado en un esquema de **2 mi
 * Reducción de alcance funcional
 * Entrega acelerada con calidad controlada
 
-El desarrollo tomó aproximadamente **30 horas reales**:
+El desarrollo tomó aproximadamente **27 horas reales**:
 
-* Micro-Sprint 1: 12h
-* Micro-Sprint 2: 18h
+* Micro-Sprint 1: 20h
+* Micro-Sprint 2: 7h
 
 ---
 
